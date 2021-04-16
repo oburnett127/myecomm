@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import com.oburnett127.MyEcomm.model.Cart;
+import com.oburnett127.MyEcomm.model.Product;
 import com.oburnett127.MyEcomm.repository.util.CartRowMapper;
 
 @Repository("cartRepository")
@@ -25,13 +26,17 @@ public class CartRepositoryImpl implements CartRepository {
 		insert.setGeneratedKeyName("id");
 		
 		Map<String, Object> data = new HashMap<>();
+		ArrayList<Integer> productIds = cart.getProductIds();
+		int cartId = cart.getCartId();
 		
-		data.put("cartId", cart.getCartId());
-		data.put("products", cart.getProducts());
+		for(Integer x : productIds) {
+			data.put("cartid", cartId);
+			data.put("productid", x);
+		}
 		
 		List<String> columns = new ArrayList<>();
-		columns.add("cartId");
-		columns.add("product");
+		columns.add("cartid");
+		columns.add("productid");
 		
 		insert.setTableName("cart");
 		insert.setColumnNames(columns);
@@ -54,13 +59,13 @@ public class CartRepositoryImpl implements CartRepository {
 //		return carts;
 //	}
 	
-	@Override
-	public Cart updateCart(Cart cart) {
-		jdbcTemplate.update("update cart set email = ?, firstName = ?, lastName = ?, password = ?, isAdmin = ? where cartId = ?", 
-				cart.getEmail(), cart.getFirstName(), cart.getLastName(), cart.getPassword(), cart.isAdmin(), cart.getCartId());
-		
-		return cart;
-	}
+//	@Override
+//	public Cart updateCart(Cart cart) {
+//		jdbcTemplate.update("update cart set email = ?, firstName = ?, lastName = ?, password = ?, isAdmin = ? where cartId = ?", 
+//				cart.getEmail(), cart.getFirstName(), cart.getLastName(), cart.getPassword(), cart.isAdmin(), cart.getCartId());
+//		
+//		return cart;
+//	}
 	
 //	@Override
 //	public void deleteCart(Integer id) {

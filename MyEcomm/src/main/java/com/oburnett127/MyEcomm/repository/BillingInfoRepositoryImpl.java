@@ -49,22 +49,23 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 	
 	@Override
 	public BillingInfo getBillingInfo(Integer id) {
-		BillingInfo billingInfo = jdbcTemplate.queryForObject("select * from billingInfo where billingInfoId = ?", new BillingInfoRowMapper(), id);
+		BillingInfo billingInfo = jdbcTemplate.queryForObject("select * from billinginfo where billingId = ?", new BillingInfoRowMapper(), id);
 		
 		return billingInfo;
 	}
 	
 	@Override
 	public List<BillingInfo> getBillingInfos() {
-		List<BillingInfo> billingInfos = jdbcTemplate.query("select * from billingInfo", new BillingInfoRowMapper());
+		List<BillingInfo> billingInfos = jdbcTemplate.query("select * from billinginfo", new BillingInfoRowMapper());
 		
 		return billingInfos;
 	}
 	
 	@Override
 	public BillingInfo updateBillingInfo(BillingInfo billingInfo) {
-		jdbcTemplate.update("update billingInfo set billingdate = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingInfoId = ?", 
-				billingInfo.getBillingDate(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(), billingInfo.getCreditCardNum(), billingInfo.getCreditCardName(), billingInfo.getBillingId());
+		jdbcTemplate.update("update billinginfo set billingdate = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
+				billingInfo.getBillingDate(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
+				billingInfo.getCreditCardNum(), billingInfo.getCreditCardName(), billingInfo.getBillingId());
 		
 		return billingInfo;
 	}
@@ -76,6 +77,6 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("id", id);
 		
-		namedTemplate.update("delete from billingInfo where billingInfoId = :id", paramMap);
+		namedTemplate.update("delete from billinginfo where billingid = :id", paramMap);
 	}
 }

@@ -14,6 +14,7 @@ public interface OrderDetailsService {
 
 	OrderDetails updateOrderDetails(OrderDetails OrderDetails);
 
-	void deleteOrderDetails(Integer id);
-
+	void deleteSingleOrderDetails(Integer orderId, Integer productId);
+	
+	void deleteAllOrderDetails(Integer orderId);
 }

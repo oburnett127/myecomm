@@ -36,10 +36,10 @@ class OrderController {
 		return orderService.getOrder(id);
 	}
 	
-	@RequestMapping(value = "/order", method = RequestMethod.PUT)
-	public @ResponseBody Order updateOrder(@RequestBody Order Order) {
-		return orderService.updateOrder(Order);
-	}
+//	@RequestMapping(value = "/order", method = RequestMethod.PUT)
+//	public @ResponseBody Order updateOrder(@RequestBody Order Order) {
+//		return orderService.updateOrder(Order);
+//	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {

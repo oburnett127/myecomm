@@ -31,10 +31,16 @@ class CartController {
 		return cartService.getCart(id);
 	}
 	
-	@RequestMapping(value = "/cart", method = RequestMethod.PUT)
-	public @ResponseBody Cart updateCart(@RequestBody Cart Cart) {
-		return cartService.updateCart(Cart);
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<ServiceError> handle(RuntimeException ex) {
+		ServiceError error = new ServiceError(HttpStatus.OK.value(), ex.getMessage());
+		return new ResponseEntity<>(error, HttpStatus.OK);
 	}
+	
+//	@RequestMapping(value = "/cart", method = RequestMethod.PUT)
+//	public @ResponseBody Cart updateCart(@RequestBody Cart Cart) {
+//		return cartService.updateCart(Cart);
+//	}
 	
 //	@RequestMapping(value = "/carts", method = RequestMethod.GET)
 //	public @ResponseBody List<Cart> getCarts() {
@@ -46,10 +52,4 @@ class CartController {
 //		cartService.deleteCart(id);
 //		return null;
 //	}
-	
-	@ExceptionHandler(RuntimeException.class)
-	public ResponseEntity<ServiceError> handle(RuntimeException ex) {
-		ServiceError error = new ServiceError(HttpStatus.OK.value(), ex.getMessage());
-		return new ResponseEntity<>(error, HttpStatus.OK);
-	}
 }

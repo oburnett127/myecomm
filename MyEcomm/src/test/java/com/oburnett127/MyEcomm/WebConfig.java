@@ -1,4 +1,4 @@
-package com.oburnett127.ecommerce;
+package com.oburnett127.MyEcomm;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

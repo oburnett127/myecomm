@@ -24,7 +24,7 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	
 	@Override
 	public List<OrderDetails> getOrdersDetails() {
-		return orderDetailsRepository.getOrderDetails();
+		return orderDetailsRepository.getOrdersDetails();
 	}
 	
 	@Override
@@ -33,7 +33,12 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 	
 	@Override
-	public void deleteOrderDetails(Integer id) {
-		orderDetailsRepository.deleteOrderDetails(id);
+	public void deleteSingleOrderDetails(Integer orderId, Integer productId) {
+		orderDetailsRepository.deleteAllOrderDetails(orderId);
+	}
+	
+	@Override
+	public void deleteAllOrderDetails(Integer id) {
+		orderDetailsRepository.deleteAllOrderDetails(id);
 	}
 }

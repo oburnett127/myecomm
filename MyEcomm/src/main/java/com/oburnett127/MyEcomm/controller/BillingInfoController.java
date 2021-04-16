@@ -21,22 +21,22 @@ class BillingInfoController {
 	@Autowired
 	private BillingInfoService billingInfoService;
 	
-	@RequestMapping(value = "/billingInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/billinginfo", method = RequestMethod.POST)
 	public @ResponseBody BillingInfo createBillingInfo(@RequestBody BillingInfo billingInfo) {
 		return billingInfoService.createBillingInfo(billingInfo);
 	}
 	
-	@RequestMapping(value = "/billingInfos", method = RequestMethod.GET)
+	@RequestMapping(value = "/billinginfos", method = RequestMethod.GET)
 	public @ResponseBody List<BillingInfo> getBillingInfos() {
 		return billingInfoService.getBillingInfos();
 	}
 	
-	@RequestMapping(value = "/billingInfo/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/billinginfo/{id}", method = RequestMethod.GET)
 	public @ResponseBody BillingInfo getBillingInfo(@PathVariable(value="id") Integer id) {
 		return billingInfoService.getBillingInfo(id);
 	}
 	
-	@RequestMapping(value = "/billingInfo", method = RequestMethod.PUT)
+	@RequestMapping(value = "/billinginfo", method = RequestMethod.PUT)
 	public @ResponseBody BillingInfo updateBillingInfo(@RequestBody BillingInfo BillingInfo) {
 		return billingInfoService.updateBillingInfo(BillingInfo);
 	}

@@ -7,11 +7,11 @@ public interface CartRepository {
 
 	Cart createCart(Cart cart);
 	
+	Cart getCart(Integer id);
+	
 	//List<Cart> getCarts();
 
-	Cart getCart(Integer id);
-
-	Cart updateCart(Cart cart);
+	//Cart updateCart(Cart cart);
 
 	//void deleteCart(Integer id);
 }

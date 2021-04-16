@@ -49,7 +49,7 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
 	}
 	
 	@Override
-	public List<OrderDetails> getOrderDetails() {
+	public List<OrderDetails> getOrdersDetails() {
 		List<OrderDetails> orderDetails = jdbcTemplate.query("select * from orderdetails", new OrderDetailsRowMapper());
 		
 		return orderDetails;
@@ -57,15 +57,29 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
 	
 	@Override
 	public OrderDetails updateOrderDetails(OrderDetails orderDetails) {
-		jdbcTemplate.update("update orderDetails set productId = ?, quantity = ? where orderId = ?", 
-				orderDetails.getProductId(), orderDetails.getQuantity(), orderDetails.getOrderId());
+		jdbcTemplate.update("update orderDetails set quantity = ? where orderId = ? and productId = ?", 
+				orderDetails.getQuantity(), orderDetails.getOrderId(), orderDetails.getProductId());
 		
 		return orderDetails;
 	}
 	
 	//I am making the assumption that when the last OrderDetails record for an order is deleted, the order should not be deleted
+	//Delete a single record in the orderdetails table
 	@Override
-	public void deleteOrderDetails(Integer id) {
+	public void deleteSingleOrderDetails(Integer orderId, Integer productId) {
+		NamedParameterJdbcTemplate namedTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("orderid", orderId);
+		paramMap.put("productid", productId);
+		
+		namedTemplate.update("delete from orderdetails where orderId = :orderid and product = :productid", paramMap);
+	}
+	
+	//I am making the assumption that when the last OrderDetails record for an order is deleted, the order should not be deleted
+	//Delete all records in orderdetails table for a given order
+	@Override
+	public void deleteAllOrderDetails(Integer id) {
 		NamedParameterJdbcTemplate namedTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
 		
 		Map<String, Object> paramMap = new HashMap<>();

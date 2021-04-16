@@ -31,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
 		data.put("lastName", user.getLastName());
 		data.put("password", user.getPassword());
 		data.put("isAdmin", user.isAdmin());
-		data.put("cartId", user.getCart().getCartId());
+		data.put("cartId", user.getCartId());
 		
 		List<String> columns = new ArrayList<>();
 		columns.add("userId");

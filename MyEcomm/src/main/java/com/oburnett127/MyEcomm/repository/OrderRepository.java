@@ -11,7 +11,7 @@ public interface OrderRepository {
 
 	Order getOrder(Integer id);
 
-	Order updateOrder(Order order);
+	//Order updateOrder(Order order);
 
 	void deleteOrder(Integer id);
 }

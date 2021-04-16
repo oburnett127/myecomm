@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import com.oburnett127.MyEcomm.model.Order;
+import com.oburnett127.MyEcomm.model.OrderDetails;
 import com.oburnett127.MyEcomm.repository.util.OrderRowMapper;
 
 @Repository("orderRepository")
@@ -41,7 +42,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 		OrderDetailsRepositoryImpl orderDetailsRepositoryImpl = new OrderDetailsRepositoryImpl();
 		orderDetailsRepositoryImpl.createOrderDetails(order.getOrderDetails());
 		
-		BillingInfoRepositoryImpl billingInfoRepositoryImpl = new billingInfoRepositoryImpl();
+		BillingInfoRepositoryImpl billingInfoRepositoryImpl = new BillingInfoRepositoryImpl();
 		billingInfoRepositoryImpl.createBillingInfo(order.getBillingInfo());
 		
 		return getOrder(id.intValue());
@@ -61,16 +62,19 @@ public class OrderRepositoryImpl implements OrderRepository {
 		return orders;
 	}
 	
-	@Override
-	public Order updateOrder(Order order) {
-		jdbcTemplate.update("update order set orderId = ?, userId = ?, orderDate = ? where orderId = ?", 
-				order.getOrderId(), order.getUserId(), order.getOrderDate(), order.getOrderId());
-		
-		return order;
-	}
+//	@Override
+//	public Order updateOrder(Order order) {
+//		jdbcTemplate.update("update order set orderDate = ? where orderId = ?", 
+//				order.getOrderId(), order.getUserId(), order.getOrderDate(), order.getOrderId());
+//		
+//		return order;
+//	}
 	
 	@Override
 	public void deleteOrder(Integer id) {
+		OrderDetailsRepositoryImpl orderDetailsRepositoryImpl = new OrderDetailsRepositoryImpl();
+		orderDetailsRepositoryImpl.deleteAllOrderDetails(id); //delete all records in orderdetails table for this order
+		
 		NamedParameterJdbcTemplate namedTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
 		
 		Map<String, Object> paramMap = new HashMap<>();

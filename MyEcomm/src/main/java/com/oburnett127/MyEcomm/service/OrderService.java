@@ -12,7 +12,7 @@ public interface OrderService {
 	
 	Order getOrder(Integer id);
 
-	Order updateOrder(Order Order);
+//	Order updateOrder(Order Order);
 
 	void deleteOrder(Integer id);
 

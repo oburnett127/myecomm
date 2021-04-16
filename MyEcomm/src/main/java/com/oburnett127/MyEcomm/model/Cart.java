@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Cart {
 	private int cartId;
-	private ArrayList<Product> products;
+	private ArrayList<Integer> productIds; //the product IDs of the products that are in the user's cart
 }

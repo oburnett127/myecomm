@@ -22,10 +22,10 @@ public class OrderRowMapper implements RowMapper<Order> {
 		order.setOrderDate(rs.getString("orderDate"));
 		
 		OrderDetails orderDetails = new OrderDetails();
-		OrderDetailsServiceImpl orderDetailsServiceImpl = new OrderDetailsServiceImpl()
+		OrderDetailsServiceImpl orderDetailsServiceImpl = new OrderDetailsServiceImpl();
 		orderDetailsServiceImpl.getOrderDetails(order.getOrderId());
 		BillingInfo billingInfo = new BillingInfo();
-		BillingInfoServiceImpl billingInfoServiceImpl = new BillingInfoServiceImpl()
+		BillingInfoServiceImpl billingInfoServiceImpl = new BillingInfoServiceImpl();
 		billingInfoServiceImpl.getBillingInfo(order.getOrderId());
 		
 		return order;

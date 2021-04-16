@@ -8,12 +8,12 @@ public interface CartService {
 
 	Cart createCart(Cart Cart);
 	
-	List<Cart> getCarts();
-	
 	Cart getCart(Integer id);
+	
+	//List<Cart> getCarts();
 
-	Cart updateCart(Cart Cart);
+	//Cart updateCart(Cart Cart);
 
-	void deleteCart(Integer id);
+	//void deleteCart(Integer id);
 
 }

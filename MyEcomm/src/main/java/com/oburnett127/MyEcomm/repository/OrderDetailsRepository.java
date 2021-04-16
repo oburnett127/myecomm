@@ -7,11 +7,13 @@ public interface OrderDetailsRepository {
 
 	OrderDetails createOrderDetails(OrderDetails orderDetails);
 	
-	List<OrderDetails> getOrderDetails();
+	List<OrderDetails> getOrdersDetails();
 
 	OrderDetails getOrderDetails(Integer id);
 
 	OrderDetails updateOrderDetails(OrderDetails orderDetails);
 
-	void deleteOrderDetails(Integer id);
+	void deleteSingleOrderDetails(Integer orderId, Integer productId);
+	
+	void deleteAllOrderDetails(Integer id);
 }

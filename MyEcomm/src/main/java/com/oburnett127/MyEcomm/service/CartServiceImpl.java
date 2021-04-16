@@ -22,18 +22,18 @@ public class CartServiceImpl implements CartService {
 		return cartRepository.getCart(id);
 	}
 	
-	@Override
-	public List<Cart> getCarts() {
-		return cartRepository.getCarts();
-	}
-	
-	@Override
-	public Cart updateCart(Cart cart) {
-		return cartRepository.updateCart(cart);
-	}
-	
-	@Override
-	public void deleteCart(Integer id) {
-		cartRepository.deleteCart(id);
-	}
+//	@Override
+//	public List<Cart> getCarts() {
+//		return cartRepository.getCarts();
+//	}
+//	
+//	@Override
+//	public Cart updateCart(Cart cart) {
+//		return cartRepository.updateCart(cart);
+//	}
+//	
+//	@Override
+//	public void deleteCart(Integer id) {
+//		cartRepository.deleteCart(id);
+//	}
 }

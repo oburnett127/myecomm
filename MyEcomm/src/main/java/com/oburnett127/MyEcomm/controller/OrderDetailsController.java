@@ -16,35 +16,39 @@ import com.oburnett127.MyEcomm.service.OrderDetailsService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/orderDetails")
+@RequestMapping("/orderdetails")
 class OrderDetailsDetailsController {
 	@Autowired
 	private OrderDetailsService orderDetailsService;
 	
-	@RequestMapping(value = "/orderDetails", method = RequestMethod.POST)
+	@RequestMapping(value = "/orderdetails", method = RequestMethod.POST)
 	public @ResponseBody OrderDetails createOrderDetails(@RequestBody OrderDetails orderDetails) {
 		return orderDetailsService.createOrderDetails(orderDetails);
 	}
 	
-	@RequestMapping(value = "/ordersDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/ordersdetails", method = RequestMethod.GET)
 	public @ResponseBody List<OrderDetails> getOrderDetails() {
 		return orderDetailsService.getOrdersDetails();
 	}
 	
-	@RequestMapping(value = "/orderDetails/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/orderdetails/{id}", method = RequestMethod.GET)
 	public @ResponseBody OrderDetails getOrderDetails(@PathVariable(value="id") Integer id) {
 		return orderDetailsService.getOrderDetails(id);
 	}
 	
-	@RequestMapping(value = "/orderDetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/orderdetails", method = RequestMethod.PUT)
 	public @ResponseBody OrderDetails updateOrderDetails(@RequestBody OrderDetails OrderDetails) {
 		return orderDetailsService.updateOrderDetails(OrderDetails);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
-		orderDetailsService.deleteOrderDetails(id);
-		return null;
+	@RequestMapping(value = "/deleteSingle/{orderid}/{productid}", method = RequestMethod.DELETE)
+	public @ResponseBody void deleteSingleOrderDetails(@PathVariable(value="orderid") Integer orderid, @PathVariable(value="productid") Integer productid) {
+		orderDetailsService.deleteSingleOrderDetails(orderid, productid);
+	}
+	
+	@RequestMapping(value = "/deleteAll/{orderid}", method = RequestMethod.DELETE)
+	public @ResponseBody void deleteAllOrderDetails(@PathVariable(value="orderid") Integer orderid) {
+		orderDetailsService.deleteAllOrderDetails(orderid);
 	}
 	
 	@ExceptionHandler(RuntimeException.class)
