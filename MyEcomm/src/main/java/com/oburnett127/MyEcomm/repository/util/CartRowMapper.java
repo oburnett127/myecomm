@@ -15,14 +15,11 @@ public class CartRowMapper implements RowMapper<Cart> {
 
 	@Override
 	public Cart mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Cart cart = new Cart(1, "fakeemail@fakeemail.com", "Bob", "Jones", "abc123", false, new Cart(1, 0, new BigDecimal(0.00), new ArrayList<Product>( ) ));
+		Cart cart = new Cart(1, 0, new BigDecimal(0.00), new ArrayList<Product>( ) );
 		cart.setCartId(rs.getInt("cartId"));
-		cart.setEmail(rs.getString("email"));
-		cart.setFirstName(rs.getString("firstName"));
-		cart.setLastName(rs.getString("lastName"));
-		cart.setPassword(rs.getString("password"));
-		cart.setAdmin(rs.getBoolean("isAdmin"));
-		cart.setCart(rs.getInt("cartID"));
+		cart.setNumProducts(rs.getInt("numProducts"));
+		cart.setTotalPrice(rs.getBigDecimal("totalPrice"));
+		cart.setProducts(rs.getString("products"));
 		
 		return cart;
 	}
