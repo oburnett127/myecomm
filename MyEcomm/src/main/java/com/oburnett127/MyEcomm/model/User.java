@@ -14,5 +14,4 @@ public class User {
 	private String lastName;
 	private String password;
 	private boolean isAdmin;
-	private int cartId;
 }

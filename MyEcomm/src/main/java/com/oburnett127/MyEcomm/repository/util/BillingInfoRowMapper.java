@@ -14,6 +14,9 @@ public class BillingInfoRowMapper implements RowMapper<BillingInfo> {
 	public BillingInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
 		BillingInfo billingInfo = new BillingInfo();
 		billingInfo.setBillingId(rs.getInt("billingId"));
+		billingInfo.setUserId(rs.getInt("userId"));
+		billingInfo.setBillFirstName(rs.getString("billFirstName"));
+		billingInfo.setBillFirstName(rs.getString("billLastName"));
 		billingInfo.setBillingDate(rs.getString("billingDate"));
 		billingInfo.setCreditCardExpDate(rs.getString("creditCardExpDate"));
 		billingInfo.setCreditCardPin(rs.getString("creditCardPin"));

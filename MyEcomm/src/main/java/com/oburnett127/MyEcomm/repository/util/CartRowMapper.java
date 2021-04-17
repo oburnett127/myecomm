@@ -13,7 +13,7 @@ public class CartRowMapper implements RowMapper<Cart> {
 	@Override
 	public Cart mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Cart cart = new Cart();
-		cart.setCartId(rs.getInt("cartId"));
+		cart.setUserId(rs.getInt("userId"));
 		ArrayList<Integer> tempList = new ArrayList<Integer>();
 		
 		do {
