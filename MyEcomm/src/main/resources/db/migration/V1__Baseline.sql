@@ -41,30 +41,30 @@ LOCK TABLES cart WRITE;
 INSERT INTO cart VALUES (1,1),(2,5),(3,4),(5,2),(4,1),(6,5);
 UNLOCK TABLES;
 //--------------------------------------------------------------
-DROP TABLE IF EXISTS order;
+DROP TABLE IF EXISTS purchase;
 
-CREATE TABLE order (
-  orderid int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE purchase (
+  purchaseid int(10) NOT NULL AUTO_INCREMENT,
   accountid int(10) NOT NULL,
-  orderdate varchar(8) NOT NULL,
-  PRIMARY KEY (orderid),
+  purchasedate varchar(8) NOT NULL,
+  PRIMARY KEY (purchaseid),
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-LOCK TABLES order WRITE;
-INSERT INTO order VALUES (1,5,"04152021"),(2,3,"04032021"),(3,4,"04072021"),(4,1,"04012021"),(5,2,"04102021");
+LOCK TABLES purchase WRITE;
+INSERT INTO purchase VALUES (1,5,"04152021"),(2,3,"04032021"),(3,4,"04072021"),(4,1,"04012021"),(5,2,"04102021");
 UNLOCK TABLES;
 //--------------------------------------------------------------
-DROP TABLE IF EXISTS orderdetails;
+DROP TABLE IF EXISTS purchasedetails;
 
-CREATE TABLE orderdetails (
-  orderid int(10) NOT NULL,
+CREATE TABLE purchasedetails (
+  purchaseid int(10) NOT NULL,
   productid varchar(10) NOT NULL,
   quantity varchar(10) NOT NULL,
-  PRIMARY KEY (orderid,productid),
+  PRIMARY KEY (purchaseid,productid),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES orderdetails WRITE;
-INSERT INTO orderdetails VALUES (1,5,4),(2,3,7),(3,4,2),(4,1,11),(5,2,28);
+LOCK TABLES purchasedetails WRITE;
+INSERT INTO purchasedetails VALUES (1,5,4),(2,3,7),(3,4,2),(4,1,11),(5,2,28);
 UNLOCK TABLES;
 //--------------------------------------------------------------
 DROP TABLE IF EXISTS billinginfo;

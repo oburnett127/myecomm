@@ -11,39 +11,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.oburnett127.MyEcomm.model.Order;
-import com.oburnett127.MyEcomm.service.OrderService;
+import com.oburnett127.MyEcomm.model.Purchase;
+import com.oburnett127.MyEcomm.service.PurchaseService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/orders")
-class OrderController {
+@RequestMapping("/purchases")
+class PurchaseController {
 	@Autowired
-	private OrderService orderService;
+	private PurchaseService purchaseService;
 	
-	@RequestMapping(value = "/order", method = RequestMethod.POST)
-	public @ResponseBody Order createOrder(@RequestBody Order order) {
-		return orderService.createOrder(order);
+	@RequestMapping(value = "/purchase", method = RequestMethod.POST)
+	public @ResponseBody Purchase createPurchase(@RequestBody Purchase purchase) {
+		return purchaseService.createPurchase(purchase);
 	}
 	
-	@RequestMapping(value = "/orders", method = RequestMethod.GET)
-	public @ResponseBody List<Order> getOrders() {
-		return orderService.getOrders();
+	@RequestMapping(value = "/purchases", method = RequestMethod.GET)
+	public @ResponseBody List<Purchase> getPurchases() {
+		return purchaseService.getPurchases();
 	}
 	
-	@RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
-	public @ResponseBody Order getOrder(@PathVariable(value="id") Integer id) {
-		return orderService.getOrder(id);
+	@RequestMapping(value = "/purchase/{id}", method = RequestMethod.GET)
+	public @ResponseBody Purchase getPurchase(@PathVariable(value="id") Integer id) {
+		return purchaseService.getPurchase(id);
 	}
 	
-//	@RequestMapping(value = "/order", method = RequestMethod.PUT)
-//	public @ResponseBody Order updateOrder(@RequestBody Order Order) {
-//		return orderService.updateOrder(Order);
+//	@RequestMapping(value = "/purchase", method = RequestMethod.PUT)
+//	public @ResponseBody Purchase updatePurchase(@RequestBody Purchase Purchase) {
+//		return purchaseService.updatePurchase(Purchase);
 //	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
-		orderService.deleteOrder(id);
+		purchaseService.deletePurchase(id);
 		return null;
 	}
 	

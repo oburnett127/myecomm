@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetails {
-	private int orderId;
+public class PurchaseDetails {
+	private int purchaseId;
 	private int productId;
 	private int quantity;
 }

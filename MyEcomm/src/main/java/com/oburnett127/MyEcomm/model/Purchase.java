@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
-	private int orderId;
+public class Purchase {
+	private int purchaseId;
 	private int accountId;
-	private String orderDate;
-	private OrderDetails orderDetails;
+	private String purchaseDate;
+	private PurchaseDetails purchaseDetails;
 	private BillingInfo billingInfo;
 }
