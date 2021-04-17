@@ -26,7 +26,7 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		
 		Map<String, Object> data = new HashMap<>();
 		data.put("billingId", billingInfo.getBillingId());
-		data.put("userId", billingInfo.getUserId());
+		data.put("accountId", billingInfo.getAccountId());
 		data.put("billFirstName", billingInfo.getBillFirstName());
 		data.put("billLastName", billingInfo.getBillLastName());
 		data.put("billingDate", billingInfo.getBillingDate());
@@ -37,9 +37,9 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		
 		List<String> columns = new ArrayList<>();
 		columns.add("billingId");
-		column.add("userId");
-		column.add("billFirstName");
-		column.add("billLastName");
+		columns.add("accountId");
+		columns.add("billFirstName");
+		columns.add("billLastName");
 		columns.add("billingDate");
 		columns.add("creditCardExpDate");
 		columns.add("creditCardPin");
@@ -69,8 +69,8 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 	
 	@Override
 	public BillingInfo updateBillingInfo(BillingInfo billingInfo) {
-		jdbcTemplate.update("update billinginfo set billingdate = ?, userid = ?, billfirstname = ?, billlastname = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
-				billingInfo.getBillingDate(), billingInfo.getUserId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
+		jdbcTemplate.update("update billinginfo set billingdate = ?, accountid = ?, billfirstname = ?, billlastname = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
+				billingInfo.getBillingDate(), billingInfo.getAccountId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
 				billingInfo.getCreditCardNum(), billingInfo.getCreditCardName(), billingInfo.getBillingId());
 		
 		return billingInfo;

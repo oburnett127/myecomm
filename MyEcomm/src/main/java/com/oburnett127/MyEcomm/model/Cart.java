@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cart {
-	private int userId;
-	private ArrayList<Integer> productIds; //the product IDs of the products that are in the user's cart
+	private int accountId;
+	private ArrayList<Integer> productIds; //the product IDs of the products that are in the account's cart
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Order {
 	private int orderId;
-	private int userId;
+	private int accountId;
 	private String orderDate;
 	private OrderDetails orderDetails;
 	private BillingInfo billingInfo;

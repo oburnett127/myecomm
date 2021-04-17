@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BillingInfo {
 	private int billingId;
-	private int userId;
+	private int accountId;
 	private String billFirstName;
 	private String billLastName;
 	private String billingDate;

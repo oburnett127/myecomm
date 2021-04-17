@@ -27,15 +27,15 @@ public class CartRepositoryImpl implements CartRepository {
 		
 		Map<String, Object> data = new HashMap<>();
 		ArrayList<Integer> productIds = cart.getProductIds();
-		int cartId = cart.getUserId();
+		int cartId = cart.getAccountId();
 		
 		for(Integer x : productIds) {
-			data.put("userid", cartId);
+			data.put("accountid", cartId);
 			data.put("productid", x);
 		}
 		
 		List<String> columns = new ArrayList<>();
-		columns.add("userid");
+		columns.add("accountid");
 		columns.add("productid");
 		
 		insert.setTableName("cart");
@@ -61,8 +61,8 @@ public class CartRepositoryImpl implements CartRepository {
 	
 //	@Override
 //	public Cart updateCart(Cart cart) {
-//		jdbcTemplate.update("update cart set email = ?, firstName = ?, lastName = ?, password = ?, isAdmin = ? where userId = ?", 
-//				cart.getEmail(), cart.getFirstName(), cart.getLastName(), cart.getPassword(), cart.isAdmin(), cart.getUserId());
+//		jdbcTemplate.update("update cart set email = ?, firstName = ?, lastName = ?, password = ?, isAdmin = ? where accountId = ?", 
+//				cart.getEmail(), cart.getFirstName(), cart.getLastName(), cart.getPassword(), cart.isAdmin(), cart.getaccountId());
 //		
 //		return cart;
 //	}
@@ -74,6 +74,6 @@ public class CartRepositoryImpl implements CartRepository {
 //		Map<String, Object> paramMap = new HashMap<>();
 //		paramMap.put("id", id);
 //		
-//		namedTemplate.update("delete from cart where userId = :id", paramMap);
+//		namedTemplate.update("delete from cart where accountId = :id", paramMap);
 //	}
 }

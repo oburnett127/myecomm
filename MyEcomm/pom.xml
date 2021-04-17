@@ -52,6 +52,10 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -82,7 +86,7 @@
 			    <configuration>
 			    	<driver>com.mysql.cj.jdbc.Driver</driver>
     				<url>jdbc:mysql://localhost:3306/MyEcomm?useSSL=false</url>
-			    	<user>root</user>
+			    	<account>root</account>
 			        <password>root</password>
 			        <schemas>
 			            <schema>MyEcomm</schema>

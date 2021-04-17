@@ -27,12 +27,12 @@ public class OrderRepositoryImpl implements OrderRepository {
 		
 		Map<String, Object> data = new HashMap<>();
 		data.put("orderId", order.getOrderId());
-		data.put("userId", order.getUserId());
+		data.put("accountId", order.getAccountId());
 		data.put("orderDate", order.getOrderDate());
 		
 		List<String> columns = new ArrayList<>();
 		columns.add("orderId");
-		columns.add("userId");
+		columns.add("accountId");
 		columns.add("orderDate");
 		
 		insert.setTableName("order");
@@ -65,7 +65,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 //	@Override
 //	public Order updateOrder(Order order) {
 //		jdbcTemplate.update("update order set orderDate = ? where orderId = ?", 
-//				order.getOrderId(), order.getUserId(), order.getOrderDate(), order.getOrderId());
+//				order.getOrderId(), order.getaccountId(), order.getOrderDate(), order.getOrderId());
 //		
 //		return order;
 //	}

@@ -11,39 +11,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.oburnett127.MyEcomm.model.User;
-import com.oburnett127.MyEcomm.service.UserService;
+import com.oburnett127.MyEcomm.model.Account;
+import com.oburnett127.MyEcomm.service.AccountService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/users")
-class UserController {
+@RequestMapping("/accounts")
+class accountController {
 	@Autowired
-	private UserService userService;
+	private AccountService accountService;
 	
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public @ResponseBody User createUser(@RequestBody User user) {
-		return userService.createUser(user);
+	@RequestMapping(value = "/account", method = RequestMethod.POST)
+	public @ResponseBody Account createaccount(@RequestBody Account account) {
+		return accountService.createAccount(account);
 	}
 	
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public @ResponseBody List<User> getUsers() {
-		return userService.getUsers();
+	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
+	public @ResponseBody List<Account> getaccounts() {
+		return accountService.getAccounts();
 	}
 	
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public @ResponseBody User getUser(@PathVariable(value="id") Integer id) {
-		return userService.getUser(id);
+	@RequestMapping(value = "/account/{id}", method = RequestMethod.GET)
+	public @ResponseBody Account getaccount(@PathVariable(value="id") Integer id) {
+		return accountService.getAccount(id);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-	public @ResponseBody User updateUser(@RequestBody User User) {
-		return userService.updateUser(User);
+	@RequestMapping(value = "/account", method = RequestMethod.PUT)
+	public @ResponseBody Account updateaccount(@RequestBody Account account) {
+		return accountService.updateAccount(account);
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
-		userService.deleteUser(id);
+		accountService.deleteAccount(id);
 		return null;
 	}
 	
