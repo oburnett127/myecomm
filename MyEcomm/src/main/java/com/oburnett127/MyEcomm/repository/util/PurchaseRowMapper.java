@@ -2,12 +2,8 @@ package com.oburnett127.MyEcomm.repository.util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.jdbc.core.RowMapper;
-
 import com.oburnett127.MyEcomm.model.BillingInfo;
-import com.oburnett127.MyEcomm.model.Cart;
-import com.oburnett127.MyEcomm.model.Product;
 import com.oburnett127.MyEcomm.service.BillingInfoServiceImpl;
 import com.oburnett127.MyEcomm.service.PurchaseDetailsServiceImpl;
 import com.oburnett127.MyEcomm.model.Purchase;
@@ -21,13 +17,13 @@ public class PurchaseRowMapper implements RowMapper<Purchase> {
 		purchase.setAccountId(rs.getInt("accountId"));
 		purchase.setPurchaseDate(rs.getString("purchaseDate"));
 		
-		PurchaseDetails purchaseDetails = new PurchaseDetails();
 		PurchaseDetailsServiceImpl purchaseDetailsServiceImpl = new PurchaseDetailsServiceImpl();
-		purchaseDetailsServiceImpl.getPurchaseDetails(purchase.getPurchaseId());
-		BillingInfo billingInfo = new BillingInfo();
+		PurchaseDetails purchaseDetails = purchaseDetailsServiceImpl.getPurchaseDetails(purchase.getPurchaseId());
 		BillingInfoServiceImpl billingInfoServiceImpl = new BillingInfoServiceImpl();
-		billingInfoServiceImpl.getBillingInfo(purchase.getPurchaseId());
-		
+		BillingInfo billingInfo = billingInfoServiceImpl.getBillingInfo(purchase.getPurchaseId());
+		purchase.setPurchaseDetails(purchaseDetails);
+		purchase.setBillingInfo(billingInfo);
+
 		return purchase;
 	}
 }

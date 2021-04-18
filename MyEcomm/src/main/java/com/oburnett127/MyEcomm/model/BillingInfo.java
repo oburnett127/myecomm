@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BillingInfo {
-	private int billingId;
-	private int accountId;
+	private int billingId; //Including billing id for future functionality
+	private int purchaseId;
 	private String billFirstName;
 	private String billLastName;
-	private String billingDate;
 	private String billingAddress;
 	private String creditCardExpDate;
 	private String creditCardPin;

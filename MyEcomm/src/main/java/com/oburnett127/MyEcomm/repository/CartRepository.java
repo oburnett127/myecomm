@@ -1,6 +1,5 @@
 package com.oburnett127.MyEcomm.repository;
 
-import java.util.List;
 import com.oburnett127.MyEcomm.model.Cart;
 
 public interface CartRepository {

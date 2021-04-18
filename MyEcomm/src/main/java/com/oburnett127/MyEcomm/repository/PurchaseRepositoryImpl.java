@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import com.oburnett127.MyEcomm.model.Purchase;
-import com.oburnett127.MyEcomm.model.PurchaseDetails;
 import com.oburnett127.MyEcomm.repository.util.PurchaseRowMapper;
 
 @Repository("purchaseRepository")

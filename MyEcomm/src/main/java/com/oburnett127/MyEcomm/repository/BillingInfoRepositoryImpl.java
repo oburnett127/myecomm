@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import com.oburnett127.MyEcomm.model.BillingInfo;
 import com.oburnett127.MyEcomm.repository.util.BillingInfoRowMapper;
 
+@Component
 @Repository("billingInfoRepository")
 public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 
@@ -26,10 +28,9 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		
 		Map<String, Object> data = new HashMap<>();
 		data.put("billingId", billingInfo.getBillingId());
-		data.put("accountId", billingInfo.getAccountId());
+		data.put("purchaseId", billingInfo.getPurchaseId());
 		data.put("billFirstName", billingInfo.getBillFirstName());
 		data.put("billLastName", billingInfo.getBillLastName());
-		data.put("billingDate", billingInfo.getBillingDate());
 		data.put("creditCardExpDate", billingInfo.getCreditCardExpDate());
 		data.put("creditCardPin", billingInfo.getCreditCardPin());
 		data.put("creditCardNum", billingInfo.getCreditCardNum());
@@ -37,10 +38,9 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		
 		List<String> columns = new ArrayList<>();
 		columns.add("billingId");
-		columns.add("accountId");
+		columns.add("purchaseId");
 		columns.add("billFirstName");
 		columns.add("billLastName");
-		columns.add("billingDate");
 		columns.add("creditCardExpDate");
 		columns.add("creditCardPin");
 		columns.add("creditCardNum");
@@ -54,8 +54,8 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 	}
 	
 	@Override
-	public BillingInfo getBillingInfo(Integer id) {
-		BillingInfo billingInfo = jdbcTemplate.queryForObject("select * from billinginfo where billingId = ?", new BillingInfoRowMapper(), id);
+	public BillingInfo getBillingInfo(Integer purchaseId) {
+		BillingInfo billingInfo = jdbcTemplate.queryForObject("select * from billinginfo where purchaseid = ?", new BillingInfoRowMapper(), purchaseId);
 		
 		return billingInfo;
 	}
@@ -69,8 +69,8 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 	
 	@Override
 	public BillingInfo updateBillingInfo(BillingInfo billingInfo) {
-		jdbcTemplate.update("update billinginfo set billingdate = ?, accountid = ?, billfirstname = ?, billlastname = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
-				billingInfo.getBillingDate(), billingInfo.getAccountId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
+		jdbcTemplate.update("update billinginfo set purchaseid = ?, billfirstname = ?, billlastname = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
+				billingInfo.getPurchaseId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
 				billingInfo.getCreditCardNum(), billingInfo.getCreditCardName(), billingInfo.getBillingId());
 		
 		return billingInfo;

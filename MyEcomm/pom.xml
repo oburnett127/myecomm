@@ -52,10 +52,18 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
+      	<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-jdbc</artifactId>
 		</dependency>
+		<dependency>
+        	<groupId>mysql</groupId>
+        	<artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+    		<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>	
 	</dependencies>
 
 	<build>
@@ -79,19 +87,6 @@
 		          	<source>1.8</source>
 		          	<target>1.8</target>
 		        </configuration>
-			</plugin>
-			<plugin>
-			    <groupId>org.flywaydb</groupId>
-			    <artifactId>flyway-maven-plugin</artifactId>
-			    <configuration>
-			    	<driver>com.mysql.cj.jdbc.Driver</driver>
-    				<url>jdbc:mysql://localhost:3306/MyEcomm?useSSL=false</url>
-			    	<account>root</account>
-			        <password>root</password>
-			        <schemas>
-			            <schema>MyEcomm</schema>
-			        </schemas>
-			    </configuration>
 			</plugin>
 		</plugins>
 	</build>

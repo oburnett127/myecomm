@@ -1,11 +1,13 @@
 package com.oburnett127.MyEcomm.service;
 
 import java.util.List;
+import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.oburnett127.MyEcomm.model.BillingInfo;
 import com.oburnett127.MyEcomm.repository.BillingInfoRepository;
 
+@Component
 @Service("billingInfoService")
 public class BillingInfoServiceImpl implements BillingInfoService {
 
@@ -18,8 +20,8 @@ public class BillingInfoServiceImpl implements BillingInfoService {
 	}
 	
 	@Override
-	public BillingInfo getBillingInfo(Integer id) {
-		return billingInfoRepository.getBillingInfo(id);
+	public BillingInfo getBillingInfo(Integer purchaseId) {
+		return billingInfoRepository.getBillingInfo(purchaseId);
 	}
 	
 	@Override

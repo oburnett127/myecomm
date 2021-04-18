@@ -4,12 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
-
-import com.oburnett127.MyEcomm.model.BillingInfo;
-import com.oburnett127.MyEcomm.model.Cart;
-import com.oburnett127.MyEcomm.model.Product;
-import com.oburnett127.MyEcomm.service.PurchaseDetailsServiceImpl;
-import com.oburnett127.MyEcomm.model.Purchase;
 import com.oburnett127.MyEcomm.model.PurchaseDetails;
 
 public class PurchaseDetailsRowMapper implements RowMapper<PurchaseDetails> {
