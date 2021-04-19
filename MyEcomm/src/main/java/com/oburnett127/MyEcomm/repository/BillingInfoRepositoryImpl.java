@@ -31,6 +31,7 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		data.put("purchaseId", billingInfo.getPurchaseId());
 		data.put("billFirstName", billingInfo.getBillFirstName());
 		data.put("billLastName", billingInfo.getBillLastName());
+		data.put("billingAddress", billingInfo.getBillingAddress());
 		data.put("creditCardExpDate", billingInfo.getCreditCardExpDate());
 		data.put("creditCardPin", billingInfo.getCreditCardPin());
 		data.put("creditCardNum", billingInfo.getCreditCardNum());
@@ -41,6 +42,7 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 		columns.add("purchaseId");
 		columns.add("billFirstName");
 		columns.add("billLastName");
+		columns.add("billingAddress");
 		columns.add("creditCardExpDate");
 		columns.add("creditCardPin");
 		columns.add("creditCardNum");
@@ -69,8 +71,8 @@ public class BillingInfoRepositoryImpl implements BillingInfoRepository {
 	
 	@Override
 	public BillingInfo updateBillingInfo(BillingInfo billingInfo) {
-		jdbcTemplate.update("update billinginfo set purchaseid = ?, billfirstname = ?, billlastname = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
-				billingInfo.getPurchaseId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
+		jdbcTemplate.update("update billinginfo set purchaseid = ?, billfirstname = ?, billlastname = ?, billingaddress = ?, creditcardexpdate = ?, creditcardpin = ?, creditcardnum = ?, creditcardname = ? where billingid = ?", 
+				billingInfo.getPurchaseId(), billingInfo.getBillFirstName(), billingInfo.getBillLastName(), billingInfo.getBillingAddress(), billingInfo.getCreditCardExpDate(), billingInfo.getCreditCardPin(),
 				billingInfo.getCreditCardNum(), billingInfo.getCreditCardName(), billingInfo.getBillingId());
 		
 		return billingInfo;

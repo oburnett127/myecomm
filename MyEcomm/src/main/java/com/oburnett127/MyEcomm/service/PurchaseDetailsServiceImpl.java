@@ -5,12 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.oburnett127.MyEcomm.model.PurchaseDetails;
 import com.oburnett127.MyEcomm.repository.PurchaseDetailsRepository;
+import com.oburnett127.MyEcomm.repository.PurchaseDetailsRepositoryImpl;
 
 @Service("purchaseDetailsService")
 public class PurchaseDetailsServiceImpl implements PurchaseDetailsService {
 
 	@Autowired
 	private PurchaseDetailsRepository purchaseDetailsRepository;
+	
+	public void setPurchaseDetailsRepository() {
+		this.purchaseDetailsRepository = new PurchaseDetailsRepositoryImpl();
+	}
 	
 	@Override
 	public PurchaseDetails createPurchaseDetails(PurchaseDetails purchaseDetails) {
@@ -34,7 +39,7 @@ public class PurchaseDetailsServiceImpl implements PurchaseDetailsService {
 	
 	@Override
 	public void deleteSinglePurchaseDetails(Integer purchaseId, Integer productId) {
-		purchaseDetailsRepository.deleteAllPurchaseDetails(purchaseId);
+		purchaseDetailsRepository.deleteSinglePurchaseDetails(purchaseId, productId);
 	}
 	
 	@Override

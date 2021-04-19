@@ -16,8 +16,7 @@ import com.oburnett127.MyEcomm.service.PurchaseService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/purchases")
-class PurchaseController {
+public class PurchaseController {
 	@Autowired
 	private PurchaseService purchaseService;
 	
@@ -41,7 +40,7 @@ class PurchaseController {
 //		return purchaseService.updatePurchase(Purchase);
 //	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/purchase/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
 		purchaseService.deletePurchase(id);
 		return null;

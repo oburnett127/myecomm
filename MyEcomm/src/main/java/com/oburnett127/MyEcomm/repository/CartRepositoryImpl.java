@@ -25,27 +25,28 @@ public class CartRepositoryImpl implements CartRepository {
 		
 		Map<String, Object> data = new HashMap<>();
 		ArrayList<Integer> productIds = cart.getProductIds();
-		int cartId = cart.getAccountId();
+		int accountId = cart.getAccountId();
+		Number id = 0;
 		
 		for(Integer x : productIds) {
-			data.put("accountid", cartId);
+			data.put("accountid", accountId);
 			data.put("productid", x);
+		
+			List<String> columns = new ArrayList<>();
+			columns.add("accountid");
+			columns.add("productid");
+			
+			insert.setTableName("cart");
+			insert.setColumnNames(columns);
+			id = insert.executeAndReturnKey(data);
 		}
-		
-		List<String> columns = new ArrayList<>();
-		columns.add("accountid");
-		columns.add("productid");
-		
-		insert.setTableName("cart");
-		insert.setColumnNames(columns);
-		Number id = insert.executeAndReturnKey(data);
 		
 		return getCart(id.intValue());
 	}
 	
 	@Override
 	public Cart getCart(Integer id) {
-		Cart cart = jdbcTemplate.queryForObject("select * from cart where cartId = ?", new CartRowMapper(), id);
+		Cart cart = jdbcTemplate.queryForObject("select * from cart where accountid = ?", new CartRowMapper(), id);
 		
 		return cart;
 	}

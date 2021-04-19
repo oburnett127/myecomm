@@ -16,8 +16,7 @@ import com.oburnett127.MyEcomm.service.CartService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/carts")
-class CartController {
+public class CartController {
 	@Autowired
 	private CartService cartService;
 	
@@ -47,7 +46,7 @@ class CartController {
 //		return cartService.getCarts();
 //	}
 	
-//	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+//	@RequestMapping(value = "/cart/delete/{id}", method = RequestMethod.DELETE)
 //	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
 //		cartService.deleteCart(id);
 //		return null;

@@ -16,8 +16,7 @@ import com.oburnett127.MyEcomm.service.AccountService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/accounts")
-class accountController {
+public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
@@ -41,7 +40,7 @@ class accountController {
 		return accountService.updateAccount(account);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "account/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
 		accountService.deleteAccount(id);
 		return null;

@@ -73,7 +73,7 @@ public class PurchaseDetailsRepositoryImpl implements PurchaseDetailsRepository 
 		paramMap.put("purchaseid", purchaseId);
 		paramMap.put("productid", productId);
 		
-		namedTemplate.update("delete from purchasedetails where purchaseId = :purchaseid and product = :productid", paramMap);
+		namedTemplate.update("delete from purchasedetails where purchaseId = :purchaseid and productid = :productid", paramMap);
 	}
 	
 	//I am making the assumption that when the last PurchaseDetails record for an purchase is deleted, the purchase should not be deleted

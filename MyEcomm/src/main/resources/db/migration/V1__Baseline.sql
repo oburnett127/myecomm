@@ -27,7 +27,7 @@ CREATE TABLE product (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 LOCK TABLES product WRITE;
-INSERT INTO product VALUES (1,"Coffee Maker","This coffee maker makes the best coffee in the entire world.",49.85,672),(2,"Space Heater","Make your house nice and warm.",99.43, 355),(3,"Light Bulb","Make your house nice and bright.",4.77, 453),(4,"Color Television","Watch your favorite shows on this color TV.", 199.96,274),(5,"Paper Towels Roll","Clean up tough messes with these paper towels.",3.63,856),(7,"Fan","Cool down with one of these fans.",39.99,474),(8,"Lawn Mower","Keep your lawn looking nice all summer long.",98.09,824),(9,"Electric Toothbrush","Keep your teeth clean with an electric toothbrush.",37.56,654),(10,"Basketball Goal","Become a star basketball player with one of these basketball goals.",96.97 456);
+INSERT INTO product VALUES (1,"Coffee Maker","This coffee maker makes the best coffee in the entire world.",49.85,672),(2,"Space Heater","Make your house nice and warm.",99.43, 355),(3,"Light Bulb","Make your house nice and bright.",4.77, 453),(4,"Color Television","Watch your favorite shows on this color TV.", 199.96,274),(5,"Paper Towels Roll","Clean up tough messes with these paper towels.",3.63,856),(7,"Fan","Cool down with one of these fans.",39.99,474),(8,"Lawn Mower","Keep your lawn looking nice all summer long.",98.09,824),(9,"Electric Toothbrush","Keep your teeth clean with an electric toothbrush.",37.56,654),(10,"Basketball Goal","Become a star basketball player with one of these basketball goals.",96.97,456);
 UNLOCK TABLES;
 
 
@@ -76,10 +76,9 @@ DROP TABLE IF EXISTS billinginfo;
 
 CREATE TABLE billinginfo (
   billingid int(10) NOT NULL AUTO_INCREMENT,
-  accountid int(10) NOT NULL,
+  purchaseid int(10) NOT NULL,
   billfirstname varchar(50) NOT NULL,
   billlastname varchar(50) NOT NULL,
-  billingdate varchar(8) NOT NULL,
   billingaddress varchar(100) NOT NULL,
   creditcardexpdate varchar(4) NOT NULL,
   creditcardpin varchar(3) NOT NULL,
@@ -89,5 +88,5 @@ CREATE TABLE billinginfo (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 LOCK TABLES billinginfo WRITE;
-INSERT INTO billinginfo VALUES (1,4,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(2,2,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(3,6,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(4,1,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(5,3,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(6,6,"Bob","Jones","04152021","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones");
+INSERT INTO billinginfo VALUES (1,4,"Bob","Jones","123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(2,2,"Bob","Jones", "123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(3,5,"Bob","Jones", "123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(4,1,"Bob","Jones", "123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones"),(5,3,"Bob","Jones", "123 Main Street, Oklahoma City, OK, 73132","0122","123","1234567891234567","Bob Jones");
 UNLOCK TABLES;

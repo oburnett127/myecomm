@@ -16,7 +16,8 @@ public class BillingInfoRowMapper implements RowMapper<BillingInfo> {
 		billingInfo.setBillingId(rs.getInt("billingId"));
 		billingInfo.setPurchaseId(rs.getInt("purchaseId"));
 		billingInfo.setBillFirstName(rs.getString("billFirstName"));
-		billingInfo.setBillFirstName(rs.getString("billLastName"));
+		billingInfo.setBillLastName(rs.getString("billLastName"));
+		billingInfo.setBillingAddress(rs.getString("billingAddress"));
 		billingInfo.setCreditCardExpDate(rs.getString("creditCardExpDate"));
 		billingInfo.setCreditCardPin(rs.getString("creditCardPin"));
 		billingInfo.setCreditCardNum(rs.getString("creditCardNum"));

@@ -16,8 +16,7 @@ import com.oburnett127.MyEcomm.service.BillingInfoService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/billingInfos")
-class BillingInfoController {
+public class BillingInfoController {
 	@Autowired
 	private BillingInfoService billingInfoService;
 	
@@ -41,7 +40,7 @@ class BillingInfoController {
 		return billingInfoService.updateBillingInfo(BillingInfo);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/billinginfo/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
 		billingInfoService.deleteBillingInfo(id);
 		return null;

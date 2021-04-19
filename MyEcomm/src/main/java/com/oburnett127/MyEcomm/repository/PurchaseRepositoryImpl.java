@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import com.oburnett127.MyEcomm.model.Purchase;
 import com.oburnett127.MyEcomm.repository.util.PurchaseRowMapper;
+import com.oburnett127.MyEcomm.util.BillingInfoMediator;
+import com.oburnett127.MyEcomm.util.PurchaseDetailsMediator;
 
 @Repository("purchaseRepository")
 public class PurchaseRepositoryImpl implements PurchaseRepository {
@@ -38,18 +40,18 @@ public class PurchaseRepositoryImpl implements PurchaseRepository {
 		insert.setColumnNames(columns);
 		Number id = insert.executeAndReturnKey(data);
 		
-		PurchaseDetailsRepositoryImpl purchaseDetailsRepositoryImpl = new PurchaseDetailsRepositoryImpl();
-		purchaseDetailsRepositoryImpl.createPurchaseDetails(purchase.getPurchaseDetails());
+		PurchaseDetailsMediator purchaseDetailsMediator = new PurchaseDetailsMediator();
+		purchaseDetailsMediator.createPurchaseDetails(purchase.getPurchaseDetails());
 		
-		BillingInfoRepositoryImpl billingInfoRepositoryImpl = new BillingInfoRepositoryImpl();
-		billingInfoRepositoryImpl.createBillingInfo(purchase.getBillingInfo());
+		BillingInfoMediator billingInfoMediator = new BillingInfoMediator();
+		billingInfoMediator.createBillingInfo(purchase.getBillingInfo());
 		
 		return getPurchase(id.intValue());
 	}
 	
 	@Override
 	public Purchase getPurchase(Integer id) {
-		Purchase purchase = jdbcTemplate.queryForObject("select * from purchase where purchaseId = ?", new PurchaseRowMapper(), id);
+		Purchase purchase = jdbcTemplate.queryForObject("select * from purchase where purchaseid = ?", new PurchaseRowMapper(), id);
 		
 		return purchase;
 	}
@@ -79,6 +81,6 @@ public class PurchaseRepositoryImpl implements PurchaseRepository {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("id", id);
 		
-		namedTemplate.update("delete from purchase where purchaseId = :id", paramMap);
+		namedTemplate.update("delete from purchase where purchaseid = :id", paramMap);
 	}
 }

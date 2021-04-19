@@ -13,13 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.oburnett127.MyEcomm.model.PurchaseDetails;
 import com.oburnett127.MyEcomm.service.PurchaseDetailsService;
+import com.oburnett127.MyEcomm.service.PurchaseDetailsServiceImpl;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/purchasedetails")
-class PurchaseDetailsDetailsController {
+public class PurchaseDetailsController {
 	@Autowired
 	private PurchaseDetailsService purchaseDetailsService;
+	
+	public void setPurchaseDetailsService() {
+		this.purchaseDetailsService = new PurchaseDetailsServiceImpl();
+	}
 	
 	@RequestMapping(value = "/purchasedetails", method = RequestMethod.POST)
 	public @ResponseBody PurchaseDetails createPurchaseDetails(@RequestBody PurchaseDetails purchaseDetails) {
@@ -41,12 +45,12 @@ class PurchaseDetailsDetailsController {
 		return purchaseDetailsService.updatePurchaseDetails(PurchaseDetails);
 	}
 	
-	@RequestMapping(value = "/deleteSingle/{purchaseid}/{productid}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/purchasedetails/deleteSingle/{purchaseid}/{productid}", method = RequestMethod.DELETE)
 	public @ResponseBody void deleteSinglePurchaseDetails(@PathVariable(value="purchaseid") Integer purchaseid, @PathVariable(value="productid") Integer productid) {
 		purchaseDetailsService.deleteSinglePurchaseDetails(purchaseid, productid);
 	}
 	
-	@RequestMapping(value = "/deleteAll/{purchaseid}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/purchasedetails/deleteAll/{purchaseid}", method = RequestMethod.DELETE)
 	public @ResponseBody void deleteAllPurchaseDetails(@PathVariable(value="purchaseid") Integer purchaseid) {
 		purchaseDetailsService.deleteAllPurchaseDetails(purchaseid);
 	}

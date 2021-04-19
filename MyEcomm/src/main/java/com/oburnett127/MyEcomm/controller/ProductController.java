@@ -16,8 +16,7 @@ import com.oburnett127.MyEcomm.service.ProductService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
 @RestController
-@RequestMapping("/products")
-class ProductController {
+public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
@@ -41,7 +40,7 @@ class ProductController {
 		return productService.updateProduct(Product);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/product/delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody Object delete(@PathVariable(value="id") Integer id) {
 		productService.deleteProduct(id);
 		return null;
