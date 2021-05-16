@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS purchase;
 CREATE TABLE purchase (
   purchaseid int(10) NOT NULL AUTO_INCREMENT,
   accountid int(10) NOT NULL,
-  purchasedate varchar(8) NOT NULL,
+  purchasedt varchar(8) NOT NULL,
   PRIMARY KEY (purchaseid)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
