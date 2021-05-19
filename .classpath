@@ -33,7 +33,6 @@
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-jdbc-5.3.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/jaxb-api-2.4.0-b180830.0359.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-starter-test-2.4.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/lombok-1.18.20.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-configuration-processor-2.4.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-devtools-2.4.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-starter-tomcat-2.4.5.jar"/>
@@ -50,5 +49,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-tx-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-2.4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-webmvc-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-web-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-util-2.0.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/lombok-1.18.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/spring-boot-antlib-2.4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oburn/Downloads/quarkus-spring-boot-properties-1.13.4.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
