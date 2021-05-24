@@ -15,6 +15,9 @@ import com.oburnett127.MyEcomm.model.Account;
 import com.oburnett127.MyEcomm.service.AccountService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
+import lombok.Data;
+
+@Data
 @RestController
 public class AccountController {
 	@Autowired
