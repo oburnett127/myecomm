@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Contact List - Spring Boot Web Application Example</title>
+<title>Product - Display</title>
 </head>
 <body>
-	<h1 align="center">Accounts</h1>
+	<h1 align="center">Products</h1>
 	<br />
 	<table border="1" cellpadding="10">
 		<tr>

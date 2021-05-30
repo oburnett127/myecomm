@@ -188,6 +188,11 @@
 		    <artifactId>exec-maven-plugin</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
+		<dependency>
+        	<groupId>org.apache.tomcat.embed</groupId>
+        	<artifactId>tomcat-embed-jasper</artifactId>
+        	<scope>provided</scope>
+      </dependency>
 	</dependencies>
 
 	<build>
@@ -210,8 +215,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>15</source>
+					<target>15</target>
 					<annotationProcessorPaths>
 	                    <path>
 	                        <groupId>org.projectlombok</groupId>
@@ -329,26 +334,26 @@
 				      </configuration>
 				    </execution>
 				  </executions>
-				</plugin>
-				<plugin>
-					  <!--groupId>org.dstovall</groupId--> <!-- not available on the central -->
-					  <groupId>com.jolira</groupId>
-					  <artifactId>onejar-maven-plugin</artifactId>
-					  <executions>
-					    <execution>
-					      <configuration>
-					        <mainClass>org.oburnett127.MyEcommApplication</mainClass>
-					        <attachToBuild>true</attachToBuild>
-					        <!-- https://code.google.com/p/onejar-maven-plugin/issues/detail?id=8 -->
-					        <!--classifier>onejar</classifier-->
-					        <filename>${project.build.finalName}-onejar.${project.packaging}</filename>
-					      </configuration>
-					      <goals>
-					        <goal>one-jar</goal>
-					      </goals>
-					    </execution>
-					  </executions>
-					</plugin>
+			</plugin>
+			<plugin>
+				  <!--groupId>org.dstovall</groupId--> <!-- not available on the central -->
+				  <groupId>com.jolira</groupId>
+				  <artifactId>onejar-maven-plugin</artifactId>
+				  <executions>
+				    <execution>
+				      <configuration>
+				        <mainClass>org.oburnett127.MyEcommApplication</mainClass>
+				        <attachToBuild>true</attachToBuild>
+				        <!-- https://code.google.com/p/onejar-maven-plugin/issues/detail?id=8 -->
+				        <!--classifier>onejar</classifier-->
+				        <filename>${project.build.finalName}-onejar.${project.packaging}</filename>
+				      </configuration>
+				      <goals>
+				        <goal>one-jar</goal>
+				      </goals>
+				    </execution>
+				  </executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

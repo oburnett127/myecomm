@@ -27,7 +27,7 @@
 				<td>${account.firstName}</td>
 				<td>${account.lastName}</td>
 				<td>${account.password}</td>
-				<td>${account.Is Admin?}</td>
+				<td>${account.isAdmin}</td>
 			</tr>
 		</c:forEach>
 	</table>
