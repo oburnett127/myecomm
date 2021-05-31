@@ -5,12 +5,11 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product - Display</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Product - Display</title>
 </head>
 <body>
-	<h1 align="center">Products</h1>
-	<br />
+	<h1 align="center">Products</h1><br />
 	<table border="1" cellpadding="10">
 		<tr>
 			<th>Product ID</th>
