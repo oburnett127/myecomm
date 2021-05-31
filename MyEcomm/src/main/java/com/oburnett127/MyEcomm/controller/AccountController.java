@@ -19,7 +19,7 @@ import com.oburnett127.MyEcomm.util.ServiceError;
 import lombok.Data;
 
 @Data
-@RestController
+@Controller
 public class AccountController {
 	@Autowired
 	private AccountService accountService;

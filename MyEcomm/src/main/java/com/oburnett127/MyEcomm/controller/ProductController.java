@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,7 @@ import com.oburnett127.MyEcomm.model.Product;
 import com.oburnett127.MyEcomm.service.ProductService;
 import com.oburnett127.MyEcomm.util.ServiceError;
 
-@RestController
+@Controller
 public class ProductController {
 	@Autowired
 	private ProductService productService;
@@ -28,11 +29,8 @@ public class ProductController {
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public @ResponseBody List<Product> getProducts(Model model) {
-		System.out.println("before getProducts");
 		List<Product> productList = productService.getProducts();
-		System.out.println("before setting attr");
 		model.addAttribute("products", productList);
-		System.out.println("after setting attr");
 		
 		return productList;
 	}
