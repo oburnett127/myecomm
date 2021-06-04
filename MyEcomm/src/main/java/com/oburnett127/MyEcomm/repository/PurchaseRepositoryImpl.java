@@ -29,12 +29,12 @@ public class PurchaseRepositoryImpl implements PurchaseRepository {
 		Map<String, Object> data = new HashMap<>();
 		data.put("purchaseId", purchase.getPurchaseId());
 		data.put("accountId", purchase.getAccountId());
-		data.put("purchaseDate", purchase.getPurchaseDate());
+		data.put("purchasedt", purchase.getPurchaseDate());
 		
 		List<String> columns = new ArrayList<>();
 		columns.add("purchaseId");
 		columns.add("accountId");
-		columns.add("purchaseDate");
+		columns.add("purchasedt");
 		
 		insert.setTableName("purchase");
 		insert.setColumnNames(columns);
