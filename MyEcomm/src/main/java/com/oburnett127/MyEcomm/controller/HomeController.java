@@ -15,23 +15,14 @@ import com.oburnett127.MyEcomm.util.ServiceError;
 @Controller
 public class HomeController {
 //	@RequestMapping(value = "/index", method = RequestMethod.GET)
-//    public @ResponseBody ModelAndView getMessage() {
-//        var mav = new ModelAndView();
-//        mav.setViewName("index");
-//        return mav;
-////		return "cookies";
-//    }
-	
-//	@RequestMapping(value = "/index", method = RequestMethod.GET)
 //	public @ResponseBody ModelAndView showIndex() {
 //      var mav = new ModelAndView();
 //      mav.setViewName("index");
 //      return mav;
-////		return "cookies";
 //	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(ModelMap model) {
 
 		//model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "index";
