@@ -8,10 +8,7 @@
 <title>Welcome to Copper Harbor</title>
 </head>
 <body>
-<h1>hello</h1>
-<h1>from</h1>
-<h1>jupiter</h1>
-<!-- <a href="products">View Products</a> -->
-<!-- <a href=" <spring:url value="MyEcomm/products" /> ">View Products</a> -->
+<h1>Welcome to Copper Harbor</h1>
+<a href="/products">View Products</a>
 </body>
 </html>

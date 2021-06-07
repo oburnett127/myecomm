@@ -14,19 +14,9 @@ import com.oburnett127.MyEcomm.util.ServiceError;
 
 @Controller
 public class HomeController {
-//	@RequestMapping(value = "/index", method = RequestMethod.GET)
-//	public @ResponseBody ModelAndView showIndex() {
-//      var mav = new ModelAndView();
-//      mav.setViewName("index");
-//      return mav;
-//	}
-	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(ModelMap model) {
-
-		//model.addAttribute("message", "Spring 3 MVC Hello World");
 		return "index";
-
 	}
 	
 	@ExceptionHandler(RuntimeException.class)

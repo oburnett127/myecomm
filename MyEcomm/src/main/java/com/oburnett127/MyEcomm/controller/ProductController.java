@@ -28,11 +28,10 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
-	public @ResponseBody List<Product> getProducts(Model model) {
+	public @ResponseBody String getProducts(Model model) {
 		List<Product> productList = productService.getProducts();
 		model.addAttribute("products", productList);
-		
-		return productList;
+		return "productdisplay";
 	}
 	
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
