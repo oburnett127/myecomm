@@ -1,6 +1,11 @@
 # MyEcomm
 Java Ecommerce Lombok
 
+## Requirements
+
+- Java 1.8 or 11
+- Docker Compose 1.27.0+ (optional)
+
 The sql file is located in src/main/resources/db/migration/V1__Baseline.sql
 There is currently no GUI for this application.
 
