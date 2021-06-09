@@ -14,10 +14,10 @@ import com.oburnett127.MyEcomm.util.ServiceError;
 
 @Controller
 public class HomeController {
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(ModelMap model) {
-		return "index";
-	}
+//	@RequestMapping(value = "/index", method = RequestMethod.GET)
+//	public String index(ModelMap model) {
+//		return "productdisplay";
+//	}
 	
 	@ExceptionHandler(RuntimeException.class)
 	public ResponseEntity<ServiceError> handle(RuntimeException ex) {

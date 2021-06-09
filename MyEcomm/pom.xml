@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MyEcomm</name>
 	<description>Spring boot MyEcomm application</description>
+	<packaging>war</packaging>
 	<properties>
 		<jdk.version>1.8</jdk.version>
 		<spring.version>5.3.7</spring.version>
